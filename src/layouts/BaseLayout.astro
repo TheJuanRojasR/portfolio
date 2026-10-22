@@ -41,5 +41,27 @@ const {
     </main>
 
     <slot name="footer" />
+
+    <script>
+      import Lenis from "lenis";
+      import "lenis/dist/lenis.css";
+
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!reduceMotion) {
+        const lenis = new Lenis({
+          lerp: 0.1,
+          smoothWheel: true,
+          anchors: true,
+        });
+
+        const raf = (time: number) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+
+        requestAnimationFrame(raf);
+      }
+    </script>
   </body>
 </html>
