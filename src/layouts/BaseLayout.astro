@@ -1,0 +1,45 @@
+---
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "../styles/global.css";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Juan Manuel Rojas Rojas — Desarrollador Full-Stack",
+  description = "Técnico en Programación de Software y estudiante de Tecnólogo en Análisis y Desarrollo de Software. Construyo aplicaciones web full-stack con foco en backend: APIs, bases de datos y lógica de negocio.",
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#0b0c0e" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-dvh bg-ink font-sans text-paper antialiased">
+    <a
+      href="#contenido"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"
+    >
+      Saltar al contenido
+    </a>
+
+    <slot name="header" />
+
+    <main id="contenido" tabindex="-1" class="focus:outline-none">
+      <slot />
+    </main>
+
+    <slot name="footer" />
+  </body>
+</html>

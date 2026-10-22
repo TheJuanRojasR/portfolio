@@ -1,0 +1,44 @@
+---
+const year = 2026;
+
+const linkClass =
+  "text-muted transition-colors duration-200 hover:text-accent motion-reduce:transition-none";
+---
+
+<footer class="border-t border-line">
+  <div
+    class="mx-auto flex w-full max-w-site flex-col gap-4 px-6 py-8 font-mono text-xs text-muted md:flex-row md:items-center md:justify-between md:px-10"
+  >
+    <ul class="flex flex-wrap items-center gap-x-6 gap-y-2">
+      <li>
+        <a href="mailto:jumanuelro.14@gmail.com" class={linkClass}>
+          jumanuelro.14@gmail.com
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/TheJuanRojasR"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={linkClass}
+        >
+          GitHub
+          <span class="sr-only">(se abre en una pestaña nueva)</span>
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://www.linkedin.com/in/juan-manuel-rojas-rojas/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class={linkClass}
+        >
+          LinkedIn
+          <span class="sr-only">(se abre en una pestaña nueva)</span>
+        </a>
+      </li>
+    </ul>
+
+    <p>© {year} Juan Manuel Rojas Rojas</p>
+  </div>
+</footer>

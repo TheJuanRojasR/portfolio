@@ -1,0 +1,95 @@
+---
+const navLinks = [
+  { href: "#proyectos", label: "Proyectos" },
+  { href: "#sobre-mi", label: "Sobre mí" },
+  { href: "#contacto", label: "Contacto" },
+];
+
+const linkClass =
+  "group relative py-1 text-sm text-muted transition-colors duration-200 hover:text-paper after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:scale-x-100 motion-reduce:transition-none motion-reduce:after:transition-none";
+---
+
+<header class="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-md">
+  <div
+    class="mx-auto flex h-16 w-full max-w-site items-center justify-between gap-6 px-6 md:px-10"
+  >
+    <a
+      href="/"
+      class="text-[15px] font-semibold tracking-tight text-paper"
+      aria-label="juanmanuel.dev, inicio"
+    >
+      juanmanuel<span class="text-muted">.dev</span>
+    </a>
+
+    <div class="flex items-center gap-6">
+      <nav aria-label="Principal" class="hidden items-center gap-8 md:flex">
+        {
+          navLinks.map((link) => (
+            <a href={link.href} class={linkClass}>
+              {link.label}
+            </a>
+          ))
+        }
+      </nav>
+
+      <a
+        href="#contacto"
+        class="rounded-sm border border-line px-3 py-1.5 font-mono text-xs text-paper transition-colors duration-200 hover:border-accent hover:text-accent motion-reduce:transition-none"
+      >
+        Hablemos
+      </a>
+
+      <details data-mobile-nav class="group relative md:hidden">
+        <summary
+          class="flex cursor-pointer list-none items-center gap-2 rounded-sm px-2 py-1.5 font-mono text-xs text-muted transition-colors duration-200 hover:text-paper [&::-webkit-details-marker]:hidden motion-reduce:transition-none"
+        >
+          Menú
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 12 12"
+            class="size-3 transition-transform duration-200 group-open:rotate-180 motion-reduce:transition-none"
+          >
+            <path
+              d="M2 4.5 6 8.5 10 4.5"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+
+        <nav
+          aria-label="Móvil"
+          class="absolute top-full right-0 mt-3 w-56 rounded-md border border-line bg-surface p-2"
+        >
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="block rounded-sm px-3 py-2.5 text-sm text-paper transition-colors duration-200 hover:bg-paper/5 hover:text-accent motion-reduce:transition-none"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Close the mobile menu after choosing a section, since in-page anchors
+  // do not reload the page and would otherwise leave the menu open.
+  document
+    .querySelectorAll<HTMLDetailsElement>("details[data-mobile-nav]")
+    .forEach((details) => {
+      details.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          details.open = false;
+        });
+      });
+    });
+</script>
