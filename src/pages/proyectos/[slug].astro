@@ -1,0 +1,140 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+export async function getStaticPaths() {
+  const projects = await getCollection("projects");
+
+  return projects.map((project) => ({
+    params: { slug: project.id },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { data } = project;
+const { Content } = await render(project);
+
+const title = `${data.title} — Juan Manuel Rojas Rojas`;
+const repoPath = new URL(data.links.repo).pathname.replace(/^\//, "");
+const linkClass =
+  "text-paper transition-colors duration-200 hover:text-accent motion-reduce:transition-none";
+const backLinkClass =
+  "inline-flex items-center font-mono text-xs text-muted transition-colors duration-200 hover:text-accent motion-reduce:transition-none";
+---
+
+<BaseLayout title={title} description={data.summary}>
+  <Header slot="header" />
+
+  <div class="mx-auto w-full max-w-site px-6 md:px-10">
+    <section aria-labelledby="caso-titulo" class="pt-14 pb-16 md:pt-20 md:pb-20">
+      <a href="/#proyectos" class={backLinkClass}>← Proyectos</a>
+
+      <p class="mt-12 font-mono text-xs tracking-[0.14em] text-muted uppercase">
+        <span class="text-accent">Caso de estudio</span>
+        <span aria-hidden="true"> / </span>
+        0{data.order}
+      </p>
+
+      <h1
+        id="caso-titulo"
+        class="mt-6 text-4xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance text-paper break-words sm:text-5xl lg:text-[3.4rem]"
+      >
+        {data.title}
+      </h1>
+
+      <p class="mt-4 text-lg text-muted">{data.subtitle}</p>
+
+      <p class="mt-6 max-w-2xl text-sm leading-relaxed text-muted sm:text-base">
+        {data.summary}
+      </p>
+
+      <dl class="mt-12 grid grid-cols-1 gap-6 border-t border-line pt-8 sm:grid-cols-2 lg:grid-cols-5">
+        <div class="min-w-0">
+          <dt class="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Rol</dt>
+          <dd class="mt-2 text-sm leading-relaxed text-paper">{data.role}</dd>
+        </div>
+
+        <div class="min-w-0">
+          <dt class="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Equipo</dt>
+          <dd class="mt-2 text-sm leading-relaxed text-paper">{data.team}</dd>
+        </div>
+
+        <div class="min-w-0">
+          <dt class="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Estado</dt>
+          <dd class="mt-2 text-sm leading-relaxed text-paper">{data.status}</dd>
+        </div>
+
+        <div class="min-w-0">
+          <dt class="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Stack</dt>
+          <dd class="mt-2 flex flex-wrap gap-2">
+            {
+              data.stack.map((tech) => (
+                <span class="rounded-sm border border-line px-2 py-1 font-mono text-[11px] text-muted">
+                  {tech}
+                </span>
+              ))
+            }
+          </dd>
+        </div>
+
+        <div class="min-w-0">
+          <dt class="font-mono text-[11px] tracking-[0.14em] text-muted uppercase">Repo</dt>
+          <dd class="mt-2 flex flex-col gap-2 font-mono text-sm break-all">
+            <a
+              href={data.links.repo}
+              target="_blank"
+              rel="noopener noreferrer"
+              class={linkClass}
+            >
+              {repoPath}
+              <span class="sr-only">(se abre en una pestaña nueva)</span>
+            </a>
+            {
+              data.links.demo && (
+                <a
+                  href={data.links.demo}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class={linkClass}
+                >
+                  Demo
+                  <span class="sr-only">(se abre en una pestaña nueva)</span>
+                </a>
+              )
+            }
+          </dd>
+        </div>
+      </dl>
+
+      <ul class="mt-12 grid grid-cols-3 gap-4 border-t border-line pt-8 sm:gap-6">
+        {
+          data.metrics.map((metric) => (
+            <li class="min-w-0">
+              <p class="text-lg font-semibold tracking-tight text-paper break-words sm:text-2xl md:text-3xl">
+                {metric.value}
+              </p>
+              <p class="mt-2 font-mono text-[11px] tracking-[0.14em] text-muted uppercase">
+                {metric.label}
+              </p>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+
+    <div class="max-w-3xl pb-24 md:pb-32">
+      <article class="case-study border-t border-line pt-16">
+        <Content />
+      </article>
+
+      <div class="mt-20 border-t border-line pt-8">
+        <a href="/#proyectos" class={backLinkClass}>← Proyectos</a>
+      </div>
+    </div>
+  </div>
+
+  <Footer slot="footer" />
+</BaseLayout>

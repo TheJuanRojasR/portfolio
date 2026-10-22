@@ -2,16 +2,10 @@
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
+import Projects from "../components/Projects.astro";
 import Footer from "../components/Footer.astro";
 
 const sections = [
-  {
-    id: "proyectos",
-    number: "01",
-    label: "Proyectos",
-    heading: "Proyectos seleccionados",
-    placeholder: "Próximamente: casos de estudio con problema, decisiones y resultados.",
-  },
   {
     id: "sobre-mi",
     number: "02",
@@ -33,6 +27,8 @@ const sections = [
   <Header slot="header" />
 
   <Hero />
+
+  <Projects />
 
   {
     sections.map((section) => (

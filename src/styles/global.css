@@ -89,3 +89,51 @@
     animation: none;
   }
 }
+
+/* Markdown body of case studies. Element-level rules, so the .md files stay plain Markdown. */
+@layer components {
+  .case-study > :first-child {
+    margin-top: 0;
+  }
+
+  .case-study h2 {
+    @apply mt-12 text-2xl font-semibold tracking-[-0.02em] text-paper;
+  }
+
+  .case-study h3 {
+    @apply mt-8 text-lg font-semibold text-paper;
+  }
+
+  .case-study p {
+    @apply mt-4 text-base leading-relaxed text-muted;
+  }
+
+  .case-study ul,
+  .case-study ol {
+    @apply mt-4 pl-5 text-muted;
+  }
+
+  .case-study ul {
+    @apply list-disc;
+  }
+
+  .case-study ol {
+    @apply list-decimal;
+  }
+
+  .case-study li + li {
+    @apply mt-2;
+  }
+
+  .case-study strong {
+    @apply font-semibold text-paper;
+  }
+
+  .case-study code {
+    @apply rounded bg-surface px-1.5 py-0.5 font-mono text-[0.9em] text-paper/90;
+  }
+
+  .case-study a {
+    @apply text-accent underline underline-offset-4;
+  }
+}

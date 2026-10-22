@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<section
+  id="proyectos"
+  aria-labelledby="proyectos-titulo"
+  class="scroll-mt-16 border-t border-line"
+>
+  <div class="mx-auto w-full max-w-site px-6 py-24 md:px-10 md:py-32">
+    <h2
+      id="proyectos-titulo"
+      class="font-mono text-xs tracking-[0.14em] text-muted uppercase"
+    >
+      <span class="text-accent">01</span>
+      <span aria-hidden="true"> / </span>
+      Proyectos
+    </h2>
+
+    <ul class="mt-12 grid grid-cols-1 gap-6 lg:grid-cols-2">
+      {
+        projects.map((project, index) => (
+          <li class="min-w-0">
+            <ProjectCard project={project} index={index} />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
