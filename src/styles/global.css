@@ -12,6 +12,7 @@
   --muted: #8a919b;
   --line: rgb(244 245 247 / 0.1);
   --accent: #f4b860;
+  --status: #8fe3b0;
 
   --font-stack-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
   --font-stack-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -24,11 +25,12 @@
   --color-muted: var(--muted);
   --color-line: var(--line);
   --color-accent: var(--accent);
+  --color-status: var(--status);
 
   --font-sans: var(--font-stack-sans);
   --font-mono: var(--font-stack-mono);
 
-  --container-site: 1200px;
+  --container-site: 1440px;
 }
 
 @layer base {

@@ -1,126 +1,118 @@
 ---
-const summary =
-  "Técnico en Programación de Software y estudiante de Tecnólogo en Análisis y Desarrollo de Software. Construyo aplicaciones web full-stack con foco en backend: APIs, bases de datos y lógica de negocio.";
-const availability = "Disponible para roles full-stack con foco en backend.";
-
-const profile = {
-  name: "Juan Manuel Rojas Rojas",
-  role: "Desarrollador Full-Stack",
-  location: "Bogotá, Colombia",
-  focus: ["APIs", "Bases de datos", "Lógica de negocio"],
-  education: [
-    "Técnico en Programación de Software",
-    "Tecnólogo en Análisis y Desarrollo de Software (en curso)",
-  ],
-  availability,
-  links: {
-    github: "https://github.com/TheJuanRojasR",
-    linkedin: "https://www.linkedin.com/in/juan-manuel-rojas-rojas/",
-    email: "jumanuelro.14@gmail.com",
-  },
-};
-
-const profileJson = JSON.stringify(profile, null, 2);
-
 const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
 ---
 
 <section
   aria-labelledby="hero-titulo"
-  class="mx-auto grid min-h-[calc(100svh-4rem)] w-full max-w-site grid-cols-1 items-center gap-x-8 gap-y-14 px-6 py-20 md:px-10 md:py-28 lg:grid-cols-12"
+  class="mx-auto grid min-h-[calc(100svh-4rem)] w-full max-w-site grid-cols-1 items-start gap-x-8 gap-y-14 px-6 pt-16 pb-16 md:px-10 md:pt-14 md:pb-16 lg:grid-cols-12 lg:items-center"
 >
-  <div class="min-w-0 lg:col-span-7">
-    <p
-      class="hero-rise font-mono text-xs tracking-[0.14em] text-muted uppercase"
-      style="--delay: 0ms"
-    >
-      Desarrollador Full-Stack · Bogotá, Colombia
-    </p>
-
-    <h1
-      id="hero-titulo"
-      class="hero-rise mt-6 text-4xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance text-paper sm:text-5xl lg:text-6xl"
-      style="--delay: 80ms"
-    >
-      Construyo sistemas web de punta a punta, con foco en el backend.
-    </h1>
-
-    <p
-      class="hero-rise mt-6 max-w-xl text-base leading-relaxed text-muted sm:text-lg"
-      style="--delay: 160ms"
-    >
-      {summary}
-    </p>
-
-    <div
-      class="hero-rise mt-10 flex flex-wrap items-center gap-3"
-      style="--delay: 240ms"
-    >
-      <a
-        href="#proyectos"
-        class="group inline-flex items-center gap-2.5 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-ink transition-opacity duration-200 hover:opacity-90 motion-reduce:transition-none"
+  <div class="min-w-0 lg:col-span-7 lg:self-center">
+    <div>
+      <p
+        class="hero-rise font-mono text-xs tracking-[0.14em] text-muted uppercase"
+        style="--delay: 0ms"
       >
-        Ver proyectos
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 14 14"
-          class="size-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
-        >
-          <path
-            d={arrow}
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </a>
+        Desarrollador Full-Stack · Bogotá, Colombia
+      </p>
 
-      <a
-        href="#contacto"
-        class="group inline-flex items-center gap-2.5 rounded-sm border border-line px-5 py-3 text-sm font-medium text-paper transition-colors duration-200 hover:border-paper/40 motion-reduce:transition-none"
+      <h1
+        id="hero-titulo"
+        class="hero-rise mt-6 text-4xl leading-[1.08] font-semibold tracking-[-0.03em] text-balance text-paper sm:text-5xl lg:text-[3.4rem]"
+        style="--delay: 80ms"
       >
-        Hablemos
-        <svg
-          aria-hidden="true"
-          viewBox="0 0 14 14"
-          class="size-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+        Desarrollo full-stack con enfoque en <span class="text-accent">backend.</span>
+      </h1>
+
+      <p
+        class="hero-rise mt-5 max-w-2xl text-sm leading-relaxed text-muted sm:text-base"
+        style="--delay: 160ms"
+      >
+        Soy técnico en Programación de Software y estudiante de Tecnología en Análisis y Desarrollo de Software. Desarrollo aplicaciones web, APIs y soluciones orientadas a la gestión de datos y la lógica de negocio.
+      </p>
+
+      <p
+        class="hero-rise mt-3 max-w-2xl text-sm leading-relaxed text-muted sm:text-base"
+        style="--delay: 200ms"
+      >
+        Me interesa construir software bien estructurado, mantenible y preparado para resolver problemas reales.
+      </p>
+
+      <div
+        class="hero-rise mt-6 flex flex-wrap items-center gap-3"
+        style="--delay: 260ms"
+      >
+        <a
+          href="#proyectos"
+          class="group inline-flex items-center gap-2.5 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-ink transition-opacity duration-200 hover:opacity-90 motion-reduce:transition-none"
         >
-          <path
-            d={arrow}
-            fill="none"
-            stroke="currentColor"
-            stroke-width="1.5"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </svg>
-      </a>
+          Ver proyectos
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 14 14"
+            class="size-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+          >
+            <path
+              d={arrow}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <a
+          href="#contacto"
+          class="group inline-flex items-center gap-2.5 rounded-sm border border-line px-5 py-3 text-sm font-medium text-paper transition-colors duration-200 hover:border-paper/40 motion-reduce:transition-none"
+        >
+          Hablemos
+          <svg
+            aria-hidden="true"
+            viewBox="0 0 14 14"
+            class="size-3.5 transition-transform duration-300 group-hover:translate-x-1 motion-reduce:transition-none"
+          >
+            <path
+              d={arrow}
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+
+      <p
+        class="hero-rise mt-5 flex items-start gap-3 font-mono text-xs leading-relaxed text-muted"
+        style="--delay: 320ms"
+      >
+        <span aria-hidden="true" class="mt-1.5 size-1.5 shrink-0 rounded-full bg-status"></span>
+        Disponible para oportunidades laborales en desarrollo de software.
+      </p>
     </div>
 
-    <p
-      class="hero-rise mt-8 flex items-start gap-3 font-mono text-xs leading-relaxed text-muted"
-      style="--delay: 320ms"
-    >
-      <span aria-hidden="true" class="mt-1.5 size-1.5 shrink-0 rounded-full bg-accent"></span>
-      {availability}
-    </p>
   </div>
 
-  <div class="min-w-0 lg:col-span-5">
-    <figure
-      class="hero-rise overflow-hidden rounded-md border border-line bg-surface"
-      style="--delay: 160ms"
+  <div class="hero-rise min-w-0 lg:col-span-5" style="--delay: 140ms">
+    <div
+      class="relative overflow-hidden rounded-md border border-line ring-1 ring-accent/20 aspect-[4/5]"
     >
-      <figcaption
-        class="flex items-center justify-between border-b border-line px-4 py-2.5 font-mono text-xs text-muted"
+      <img
+        src="/images/portrait.jpg"
+        alt="Retrato de Juan Manuel Rojas Rojas"
+        width="1200"
+        height="1442"
+        decoding="async"
+        class="h-full w-full object-cover"
+      />
+
+      <div
+        class="absolute inset-x-0 bottom-0 bg-linear-to-t from-ink/95 via-ink/50 to-transparent p-6 pt-24 md:p-8"
       >
-        <span>profile.json</span>
-        <span>solo lectura</span>
-      </figcaption>
-      <pre
-        class="p-5 font-mono text-[13px] leading-relaxed break-words whitespace-pre-wrap text-paper/85"><code>{profileJson}</code></pre>
-    </figure>
+        <p class="font-mono text-sm tracking-[0.06em] text-paper">Juan Manuel Rojas Rojas</p>
+      </div>
+    </div>
   </div>
 </section>
