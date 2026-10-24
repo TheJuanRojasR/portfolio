@@ -387,6 +387,69 @@ const education = [
       animation: none;
     }
   }
+
+  @media (max-width: 551px) {
+    [data-timeline] .snap-x {
+      overflow-x: visible;
+      scroll-snap-type: none;
+    }
+
+    [data-timeline] [data-timeline-track] {
+      min-width: 0;
+    }
+
+    [data-timeline] [data-timeline-track] > div[aria-hidden="true"] {
+      display: none;
+    }
+
+    [data-timeline] ol {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      padding-bottom: 0;
+    }
+
+    [data-timeline] ol::before {
+      content: "";
+      position: absolute;
+      top: 0.75rem;
+      bottom: 0.75rem;
+      left: 0;
+      width: 1px;
+      background: var(--line);
+    }
+
+    [data-timeline] .timeline-point {
+      min-width: 0;
+      flex: none;
+    }
+
+    [data-timeline] .timeline-point-button {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0.75rem 0 0.75rem 1.5rem;
+    }
+
+    [data-timeline] .timeline-dot {
+      top: 50%;
+      left: 0;
+    }
+
+    [data-timeline] .timeline-point-label {
+      text-align: left;
+    }
+
+    [data-timeline] .timeline-panel {
+      align-items: flex-start;
+      text-align: left;
+    }
+
+    [data-timeline] .timeline-panel > div {
+      justify-content: flex-start;
+    }
+  }
 </style>
 
 <script>
