@@ -9,7 +9,7 @@ const linkClass =
   "group relative py-1 text-sm text-muted transition-colors duration-200 hover:text-paper after:absolute after:inset-x-0 after:-bottom-0.5 after:h-px after:origin-left after:scale-x-0 after:bg-accent after:transition-transform after:duration-300 hover:after:scale-x-100 motion-reduce:transition-none motion-reduce:after:transition-none";
 ---
 
-<header class="sticky top-0 z-50 border-b border-line bg-ink/85 backdrop-blur-md">
+<header class="sticky top-0 z-50 bg-ink/20 backdrop-blur-md">
   <div
     class="mx-auto flex h-16 w-full max-w-site items-center justify-between gap-6 px-6 md:px-10"
   >
@@ -33,10 +33,26 @@ const linkClass =
       </nav>
 
       <a
-        href="/#contacto"
-        class="rounded-sm border border-line px-3 py-1.5 font-mono text-xs text-paper transition-colors duration-200 hover:border-accent hover:text-accent motion-reduce:transition-none"
+        href="/cv/juan-manuel-rojas-rojas.pdf"
+        download
+        class="group inline-flex items-center gap-1.5 rounded-sm bg-accent px-3 py-1.5 font-mono text-xs font-medium text-ink transition-opacity duration-200 hover:opacity-90 motion-reduce:transition-none"
       >
-        Hablemos
+        <span class="hidden sm:inline">Descargar CV</span>
+        <span class="sm:hidden">CV</span>
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 14 14"
+          class="size-3 transition-transform duration-300 group-hover:translate-y-0.5 motion-reduce:transition-none"
+        >
+          <path
+            d="M7 2v7M4 6l3 3 3-3M2 11h10"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
       </a>
 
       <details data-mobile-nav class="group relative md:hidden">
