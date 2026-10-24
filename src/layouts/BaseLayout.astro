@@ -26,7 +26,13 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <title>{title}</title>
   </head>
-  <body class="min-h-dvh bg-ink font-sans text-paper antialiased">
+  <body class="min-h-dvh font-sans text-paper antialiased">
+    <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 bg-ink">
+      <div class="page-grid absolute inset-0"></div>
+      <div class="page-stars absolute inset-0"></div>
+      <div class="page-grain absolute inset-0"></div>
+    </div>
+
     <a
       href="#contenido"
       class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[60] focus:rounded-sm focus:bg-accent focus:px-4 focus:py-2 focus:text-sm focus:font-medium focus:text-ink"

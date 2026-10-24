@@ -111,10 +111,12 @@ const education = [
       </div>
 
       <div class="min-w-0 lg:col-span-5">
-        <div class="grid grid-cols-2 gap-px bg-line">
+        <div class="grid grid-cols-2">
           {
-            stats.map((stat) => (
-              <div class="bg-ink p-5 sm:p-6">
+            stats.map((stat, index) => (
+              <div
+                class={`p-5 sm:p-6 ${index % 2 === 1 ? "border-l border-line" : ""} ${index >= 2 ? "border-t border-line" : ""}`}
+              >
                 <p class="text-5xl font-semibold tracking-[-0.03em] text-accent sm:text-6xl">
                   {stat.value}
                 </p>
