@@ -108,27 +108,6 @@ const education = [
             comunicación es la herramienta más importante de este sector.
           </p>
         </div>
-        <a
-          href="/cv/juan-manuel-rojas-rojas.pdf"
-          download
-          class="group mt-8 inline-flex items-center gap-2.5 rounded-sm bg-accent px-5 py-3 text-sm font-medium text-ink transition-opacity duration-200 hover:opacity-90 motion-reduce:transition-none"
-        >
-          Descargar CV
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 14 14"
-            class="size-3.5 transition-transform duration-300 group-hover:translate-y-0.5 motion-reduce:transition-none"
-          >
-            <path
-              d="M7 2v7M4 6l3 3 3-3M2 11h10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.5"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </a>
       </div>
 
       <div class="min-w-0 lg:col-span-5">
@@ -150,7 +129,10 @@ const education = [
     </div>
 
     <div class="mt-16 border-t border-line pt-12">
-      <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+      <h3 class="font-mono text-xs tracking-[0.14em] text-muted uppercase">
+        Stack
+      </h3>
+      <div class="mt-8 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8">
         {
           skillGroups.map((group) => (
             <div class="min-w-0">
