@@ -1,8 +1,9 @@
 ---
+const base = import.meta.env.BASE_URL;
 const navLinks = [
-  { href: "/#sobre-mi", label: "Sobre mí" },
-  { href: "/#proyectos", label: "Proyectos" },
-  { href: "/#contacto", label: "Contacto" },
+  { href: `${base}#sobre-mi`, label: "Sobre mí" },
+  { href: `${base}#proyectos`, label: "Proyectos" },
+  { href: `${base}#contacto`, label: "Contacto" },
 ];
 
 const linkClass =
@@ -14,7 +15,7 @@ const linkClass =
     class="mx-auto flex h-16 w-full max-w-site items-center justify-between gap-6 px-6 md:px-10"
   >
     <a
-      href="/"
+      href={base}
       class="text-[15px] font-semibold tracking-tight text-paper"
       aria-label="juanmanuel.dev, inicio"
     >
@@ -33,7 +34,7 @@ const linkClass =
       </nav>
 
       <a
-        href="/cv/juan-manuel-rojas-rojas.pdf"
+        href={`${base}cv/juan-manuel-rojas-rojas.pdf`}
         download
         class="group inline-flex items-center gap-1.5 rounded-sm bg-accent px-3 py-1.5 font-mono text-xs font-medium text-ink transition-opacity duration-200 hover:opacity-90 motion-reduce:transition-none"
       >

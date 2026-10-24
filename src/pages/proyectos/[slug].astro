@@ -17,20 +17,65 @@ const { project } = Astro.props;
 const { data } = project;
 const { Content } = await render(project);
 
+const base = import.meta.env.BASE_URL;
+const site = Astro.site ?? Astro.url;
+const canonicalURL = new URL(Astro.url.pathname, site);
+const homeURL = new URL(base, site);
 const title = `${data.title} — Juan Manuel Rojas Rojas`;
 const repoPath = new URL(data.links.repo).pathname.replace(/^\//, "");
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: data.title,
+    description: data.summary,
+    url: canonicalURL.toString(),
+    author: {
+      "@type": "Person",
+      name: "Juan Manuel Rojas Rojas",
+      url: homeURL.toString(),
+    },
+    codeRepository: data.links.repo,
+    keywords: data.stack.join(", "),
+    inLanguage: "es",
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Inicio",
+        item: homeURL.toString(),
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Proyectos",
+        item: `${homeURL.toString()}#proyectos`,
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: data.title,
+        item: canonicalURL.toString(),
+      },
+    ],
+  },
+];
 const linkClass =
   "text-paper transition-colors duration-200 hover:text-accent motion-reduce:transition-none";
 const backLinkClass =
   "inline-flex items-center font-mono text-xs text-muted transition-colors duration-200 hover:text-accent motion-reduce:transition-none";
 ---
 
-<BaseLayout title={title} description={data.summary}>
+<BaseLayout title={title} description={data.summary} type="article" jsonLd={jsonLd}>
   <Header slot="header" />
 
   <div class="mx-auto w-full max-w-site px-6 md:px-10">
     <section aria-labelledby="caso-titulo" class="pt-14 pb-16 md:pt-20 md:pb-20">
-      <a href="/#proyectos" class={backLinkClass}>← Proyectos</a>
+      <a href={`${base}#proyectos`} class={backLinkClass}>← Proyectos</a>
 
       <p class="mt-12 font-mono text-xs tracking-[0.14em] text-muted uppercase">
         <span class="text-accent">Caso de estudio</span>
@@ -131,7 +176,7 @@ const backLinkClass =
       </article>
 
       <div class="mt-20 border-t border-line pt-8">
-        <a href="/#proyectos" class={backLinkClass}>← Proyectos</a>
+        <a href={`${base}#proyectos`} class={backLinkClass}>← Proyectos</a>
       </div>
     </div>
   </div>

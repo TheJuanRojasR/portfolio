@@ -1,5 +1,6 @@
 ---
 const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
+const base = import.meta.env.BASE_URL;
 ---
 
 <div class="relative isolate overflow-hidden">
@@ -182,7 +183,7 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
       class="relative overflow-hidden rounded-md border border-line ring-1 ring-accent/20 aspect-[4/5]"
     >
       <img
-        src="/images/portrait.jpg"
+        src={`${base}images/portrait.jpg`}
         alt="Retrato de Juan Manuel Rojas Rojas"
         width="1200"
         height="1442"

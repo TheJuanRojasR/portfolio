@@ -86,7 +86,7 @@
 }
 
 .page-stars-dense {
-  background-image: url("/images/stars-dense.svg");
+  background-image: var(--stars-dense);
   background-size: 520px 520px;
   opacity: 0.6;
   -webkit-mask-image: radial-gradient(
