@@ -2,8 +2,15 @@
 const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
 ---
 
-<section
-  aria-labelledby="hero-titulo"
+<div class="relative isolate overflow-hidden">
+  <div aria-hidden="true" class="pointer-events-none absolute inset-0 -z-10">
+    <div class="hero-glow absolute inset-0"></div>
+    <div class="hero-grid absolute inset-0"></div>
+    <div class="hero-grain absolute inset-0"></div>
+  </div>
+
+  <section
+    aria-labelledby="hero-titulo"
   class="mx-auto grid min-h-[calc(100svh-4rem)] w-full max-w-site grid-cols-1 items-start gap-x-8 gap-y-14 px-6 pt-16 pb-16 md:px-10 md:pt-14 md:pb-16 lg:grid-cols-12 lg:items-center"
 >
   <div class="relative flex min-w-0 flex-col lg:col-span-7 lg:self-stretch">
@@ -99,10 +106,10 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
       class="hero-rise mt-10 pt-6 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0"
       style="--delay: 420ms"
     >
-      <div class="grid grid-cols-1 gap-px bg-line sm:grid-cols-3">
+      <div class="grid grid-cols-1 divide-y divide-line sm:grid-cols-3 sm:divide-x sm:divide-y-0">
         <a
           href="mailto:jumanuelro.14@gmail.com"
-          class="group flex flex-col gap-1 bg-ink py-4 transition-colors sm:pr-6"
+          class="group flex flex-col gap-1 py-4 transition-colors sm:pr-6"
         >
           <span class="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] text-muted uppercase">
             <svg
@@ -129,7 +136,7 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
           href="https://www.linkedin.com/in/juan-manuel-rojas-rojas/"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col gap-1 bg-ink py-4 transition-colors sm:px-6"
+          class="group flex flex-col gap-1 py-4 transition-colors sm:px-6"
         >
           <span class="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] text-muted uppercase">
             <svg
@@ -151,7 +158,7 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
           href="https://github.com/TheJuanRojasR"
           target="_blank"
           rel="noopener noreferrer"
-          class="group flex flex-col gap-1 bg-ink py-4 transition-colors sm:px-6"
+          class="group flex flex-col gap-1 py-4 transition-colors sm:px-6"
         >
           <span class="flex items-center gap-2 font-mono text-[11px] tracking-[0.1em] text-muted uppercase">
             <svg
@@ -194,6 +201,7 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
   </div>
 
 </section>
+</div>
 
 <style>
   .typewriter-cursor {
@@ -216,8 +224,57 @@ const arrow = "M3 7h8M7.5 3.5 11 7l-3.5 3.5";
     }
   }
 
+  .hero-grid {
+    background-image:
+      linear-gradient(to right, rgba(244, 245, 247, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(244, 245, 247, 0.045) 1px, transparent 1px);
+    background-size: 96px 96px;
+    -webkit-mask-image: radial-gradient(
+      120% 90% at 50% 40%,
+      black 25%,
+      transparent 75%
+    );
+    mask-image: radial-gradient(
+      120% 90% at 50% 40%,
+      black 25%,
+      transparent 75%
+    );
+  }
+
+  .hero-glow {
+    background:
+      radial-gradient(
+        55rem 40rem at 78% 38%,
+        rgba(244, 184, 96, 0.14),
+        transparent 62%
+      ),
+      radial-gradient(
+        40rem 30rem at 20% 82%,
+        rgba(110, 116, 125, 0.08),
+        transparent 65%
+      );
+    animation: hero-glow-drift 24s ease-in-out infinite alternate;
+  }
+
+  .hero-grain {
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    background-size: 160px 160px;
+    mix-blend-mode: soft-light;
+  }
+
+  @keyframes hero-glow-drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    to {
+      transform: translate3d(-1.5%, 1%, 0) scale(1.04);
+    }
+  }
+
   @media (prefers-reduced-motion: reduce) {
-    .typewriter-cursor {
+    .typewriter-cursor,
+    .hero-glow {
       animation: none;
     }
   }
