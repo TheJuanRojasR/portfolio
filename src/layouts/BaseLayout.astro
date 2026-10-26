@@ -22,7 +22,7 @@ const site = Astro.site ?? Astro.url;
 const canonicalURL = new URL(Astro.url.pathname, site);
 const homeURL = new URL(base, site);
 const ogImageURL = new URL(`${base}images/og-image.jpg`, site);
-const portraitURL = new URL(`${base}images/portrait.jpg`, site);
+const portraitURL = new URL(`${base}images/portrait.webp`, site);
 const ogImageAlt = "Juan Manuel Rojas Rojas, desarrollador full-stack";
 
 const person = {
